@@ -1,0 +1,52 @@
+/* DESKTOP 2-COLUMN LAYOUT */
+#content-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 50px !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+#wrapper #content { flex: 1.4 !important; }
+#wrapper #rightbar { 
+    flex: 1 !important; 
+    background: #f9fafb !important; 
+    padding: 30px !important;
+    border-radius: 16px !important;
+}
+
+/* HIDE SPECIFIC ADDRESS FIELDS (Required by Jermaine) */
+.addressLine1Field, .addressLine2Field, .cityField, .stateField {
+    display: none !important;
+}
+
+/* MODERN 2026 INPUTS (Clean & Short) */
+.input-field input {
+    height: 50px !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    background: #ffffff !important;
+}
+
+/* ONE-LINE CREDIT CARD SECTION */
+.creditCardFormOption .form-row {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+/* 50PX HEIGHT ORDER SUMMARY LINE */
+.orderSummaryTotal {
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-top: 1px solid #eee !important;
+    margin-top: 20px !important;
+}
+
+/* MOBILE RESPONSIVE */
+@media only screen and (max-width: 840px) {
+    #content-wrapper { flex-direction: column !important; }
+    .form-row { flex-direction: column !important; gap: 0 !important; }
+}

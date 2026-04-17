@@ -1,57 +1,67 @@
-/* 1. GLOBAL UI - 2026 TRUST DESIGN */
+/* 1. GLOBAL UI RESET */
 body {
     background-color: #ffffff !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    color: #1a1a1a !important;
 }
 
-#wrapper {
-    padding: 0 !important;
-    max-width: 100% !important;
-}
+#wrapper { padding: 0 !important; max-width: 100% !important; }
 
-/* 2. THE KATE HAYES SPLIT (Desktop) */
+/* 2. THE MODERN TWO-COLUMN SPLIT */
 #content-wrapper {
     display: flex !important;
     min-height: 100vh;
 }
 
-/* Left Side: The Input Form */
+/* Left Side: Clean Form Area */
 #wrapper #content {
     flex: 1.2 !important;
     padding: 60px 8% !important;
     background: #ffffff !important;
 }
 
-/* Right Side: The Order Summary (Subtle Gray Background) */
+/* Right Side: Subtle Gray Summary (Kate Hayes Style) */
 #wrapper #rightbar {
     flex: 1 !important;
     padding: 60px 5% !important;
-    background: #f9fafb !important; /* The "Kate Hayes" light gray side */
+    background: #f8fafc !important; /* Very light modern gray */
     border-left: 1px solid #e5e7eb !important;
 }
 
-/* 3. ULTRA-CLEAN INPUTS */
-.input-field input, .select-field select {
-    height: 50px !important;
-    border: 1px solid #d1d5db !important;
-    border-radius: 6px !important;
-    font-size: 16px !important;
-    transition: border-color 0.2s, box-shadow 0.2s !important;
-}
-
-.input-field input:focus {
-    border-color: #2563eb !important; /* Professional Blue */
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
-    outline: none !important;
-}
-
-/* 4. HIDE CLUTTER & MATCH SHORT FORM REQS */
-.addressLine1Field, .addressLine2Field, .cityField, .stateField, 
-#orderSummaryContainer, .orderSummarySubTotals {
+/* 3. SHORT FORM: Hiding specific fields per Jermaine */
+.addressLine1Field, .addressLine2Field, .cityField, .stateField,
+#orderSummaryContainer, .orderSummarySubTotals, #orderSummaryPromoEntry {
     display: none !important;
 }
 
-/* 5. 50PX ONE-LINE SUMMARY (As requested by Jermaine) */
+/* 4. MODERN INPUTS (2026 Design) */
+.input-field input, .select-field select {
+    height: 52px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: #ffffff !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+.input-field input:focus {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* Static labels above inputs for trust and clarity */
+.input-field label, .select-field label {
+    position: static !important;
+    transform: none !important;
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    font-size: 14px !important;
+}
+
+/* 5. 50PX ONE-LINE TOTAL SUMMARY */
 .orderSummaryTotal {
     height: 50px !important;
     display: flex !important;
@@ -61,18 +71,19 @@ body {
     margin-top: 20px !important;
 }
 
-/* 6. CREDIT CARD ROW (Trust Focus) */
+/* 6. CREDIT CARD ROW: High Trust Container */
 #creditCardFormOption {
-    display: block !important;
+    display: block !important; /* Force show default */
     background: #ffffff !important;
-    padding: 20px !important;
+    padding: 24px !important;
     border: 1px solid #e5e7eb !important;
-    border-radius: 8px !important;
+    border-radius: 12px !important;
+    margin-top: 30px !important;
 }
 
 /* 7. MOBILE RESPONSIVE */
 @media only screen and (max-width: 840px) {
     #content-wrapper { flex-direction: column-reverse !important; }
-    #wrapper #content, #wrapper #rightbar { padding: 30px 20px !important; }
+    #wrapper #content, #wrapper #rightbar { padding: 40px 20px !important; }
     #wrapper #rightbar { border-left: none !important; border-bottom: 1px solid #e5e7eb !important; }
 }

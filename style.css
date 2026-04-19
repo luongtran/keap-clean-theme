@@ -1,83 +1,74 @@
-/* 1. LAYOUT: Professional 2-Column Split */
+/* 1. RESET LAYOUT - Đưa về 2 cột sạch sẽ */
 #content-wrapper {
     display: flex !important;
-    flex-direction: row !important;
+    gap: 0 !important;
     min-height: 100vh;
-    background: #ffffff !important;
 }
 
-/* Left Column: Order Summary (Information) */
+/* Cột trái: Tóm tắt đơn hàng (Gọn gàng) */
 #wrapper #content {
     flex: 1 !important;
-    padding: 60px 5% !important;
-    background: #f9fafb !important; /* Subtle gray background */
-    border-right: 1px solid #eeeeee !important;
+    background: #f9fafb !important;
+    padding: 40px !important;
+    border-right: 1px solid #eee !important;
 }
 
-/* Right Column: Checkout Form (Action) */
+/* Cột phải: Form thanh toán (Cực ngắn) */
 #wrapper #rightbar {
-    flex: 1.2 !important;
-    padding: 60px 8% !important;
+    flex: 1 !important;
     background: #ffffff !important;
+    padding: 40px !important;
 }
 
-/* 2. LOGO & TITLES: Clean Alignment */
-#companyLogoTopBanner {
-    text-align: left !important;
-    margin-bottom: 30px !important;
+/* 2. HIDE ALL CLUTTER - Ẩn sạch những thứ Jermaine không muốn */
+.addressLine1Field, .addressLine2Field, .cityField, .stateField,
+.orderSummarySubTotals, #orderSummaryPromoEntry, .title, .formTitle {
+    display: none !important;
 }
 
-#companyLogoTopBanner img {
-    max-width: 200px !important;
-    height: auto !important;
-}
-
-/* 3. INPUT FIELDS: Modern & High-Trust */
+/* 3. MODERN INPUTS - Làm input mỏng và sắc nét hơn */
 .input-field label {
-    display: block !important;
+    font-size: 13px !important;
     font-weight: 600 !important;
-    font-size: 14px !important;
-    color: #333 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 4px !important;
+    display: block !important;
     position: static !important;
     transform: none !important;
 }
 
 .input-field input {
-    height: 50px !important;
-    border: 1px solid #d1d5db !important;
-    border-radius: 8px !important;
-    padding: 0 15px !important;
-    font-size: 16px !important;
-    background: #ffffff !important;
-    box-shadow: none !important;
-    width: 100% !important;
+    height: 42px !important; /* Giảm chiều cao để form ngắn hơn */
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    padding: 0 12px !important;
+    font-size: 15px !important;
 }
 
-/* 4. PAYMENT SECTION: Fix massive buttons from screenshot */
+/* 4. PAYMENT BOX - Làm cho phần thẻ nhìn chuyên nghiệp */
 #creditCardFormOption {
     display: block !important;
-    border: 1px solid #e5e7eb !important;
-    border-radius: 12px !important;
-    padding: 25px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
     margin-top: 20px !important;
 }
 
-/* Fix PayPal button size to look professional */
-.payPalFormOption img {
-    max-width: 150px !important;
-    height: auto !important;
-    margin: 0 auto !important;
+/* Thu nhỏ nút PayPal/Debit đang bị quá to trong ảnh của bạn */
+.payPalFormOption, .paymentOptions {
+    max-width: 300px !important;
+    margin: 15px 0 !important;
 }
 
-/* 5. HIDE UNWANTED ELEMENTS (Jermaine's requirement) */
-.addressLine1Field, .addressLine2Field, .cityField, .stateField,
-.orderSummarySubTotals, #orderSummaryPromoEntry {
-    display: none !important;
+/* 5. ORDER SUMMARY - Tối giản tóm tắt 50px */
+.orderSummaryTotal {
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-top: 1px solid #eee !important;
 }
 
-/* 6. MOBILE RESPONSIVE: Stack vertically */
+/* 6. MOBILE FIX */
 @media (max-width: 840px) {
-    #content-wrapper { flex-direction: column !important; }
-    #wrapper #content, #wrapper #rightbar { padding: 30px 20px !important; }
+    #content-wrapper { flex-direction: column-reverse !important; }
 }

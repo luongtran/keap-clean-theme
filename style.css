@@ -1,73 +1,83 @@
-/* Giao diện chuẩn 2026 - Tập trung vào sự tin tưởng */
-body {
-    background-color: #ffffff !important;
-    font-family: 'Inter', -apple-system, sans-serif !important;
-}
-
-/* Chia 2 cột Desktop */
+/* 1. LAYOUT: Professional 2-Column Split */
 #content-wrapper {
     display: flex !important;
+    flex-direction: row !important;
     min-height: 100vh;
-}
-
-#wrapper #content {
-    flex: 1.2 !important;
-    padding: 40px 6% !important;
     background: #ffffff !important;
 }
 
-#wrapper #rightbar {
+/* Left Column: Order Summary (Information) */
+#wrapper #content {
     flex: 1 !important;
-    padding: 40px 4% !important;
-    background: #f9fafb !important; /* Xám nhạt hiện đại */
-    border-left: 1px solid #e5e7eb !important;
+    padding: 60px 5% !important;
+    background: #f9fafb !important; /* Subtle gray background */
+    border-right: 1px solid #eeeeee !important;
 }
 
-/* Ẩn các trường địa chỉ Jermaine yêu cầu loại bỏ */
+/* Right Column: Checkout Form (Action) */
+#wrapper #rightbar {
+    flex: 1.2 !important;
+    padding: 60px 8% !important;
+    background: #ffffff !important;
+}
+
+/* 2. LOGO & TITLES: Clean Alignment */
+#companyLogoTopBanner {
+    text-align: left !important;
+    margin-bottom: 30px !important;
+}
+
+#companyLogoTopBanner img {
+    max-width: 200px !important;
+    height: auto !important;
+}
+
+/* 3. INPUT FIELDS: Modern & High-Trust */
+.input-field label {
+    display: block !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    margin-bottom: 8px !important;
+    position: static !important;
+    transform: none !important;
+}
+
+.input-field input {
+    height: 50px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    padding: 0 15px !important;
+    font-size: 16px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    width: 100% !important;
+}
+
+/* 4. PAYMENT SECTION: Fix massive buttons from screenshot */
+#creditCardFormOption {
+    display: block !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    margin-top: 20px !important;
+}
+
+/* Fix PayPal button size to look professional */
+.payPalFormOption img {
+    max-width: 150px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+}
+
+/* 5. HIDE UNWANTED ELEMENTS (Jermaine's requirement) */
 .addressLine1Field, .addressLine2Field, .cityField, .stateField,
 .orderSummarySubTotals, #orderSummaryPromoEntry {
     display: none !important;
 }
 
-/* Form nhập liệu tinh tế */
-.input-field input {
-    height: 48px !important;
-    border: 1px solid #d1d5db !important;
-    border-radius: 6px !important;
-    font-size: 16px !important;
-    box-shadow: none !important;
-}
-
-.input-field label {
-    position: static !important;
-    transform: none !important;
-    display: block !important;
-    margin-bottom: 6px !important;
-    font-weight: 600 !important;
-    color: #374151 !important;
-}
-
-/* Dòng tổng tiền 50px */
-.orderSummaryTotal {
-    height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    border-top: 1px solid #e5e7eb !important;
-    margin-top: 20px !important;
-}
-
-/* Phần Credit Card hiện sẵn */
-#creditCardFormOption {
-    display: block !important;
-    border: 1px solid #e5e7eb !important;
-    padding: 20px !important;
-    border-radius: 10px !important;
-    background: #fff !important;
-}
-
-/* Mobile: Xếp chồng */
+/* 6. MOBILE RESPONSIVE: Stack vertically */
 @media (max-width: 840px) {
-    #content-wrapper { flex-direction: column-reverse !important; }
-    #wrapper #content, #wrapper #rightbar { padding: 24px !important; }
+    #content-wrapper { flex-direction: column !important; }
+    #wrapper #content, #wrapper #rightbar { padding: 30px 20px !important; }
 }

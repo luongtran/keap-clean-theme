@@ -1,67 +1,53 @@
-/* 1. GLOBAL UI RESET */
+/* Giao diện chuẩn 2026 - Tập trung vào sự tin tưởng */
 body {
     background-color: #ffffff !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    color: #1a1a1a !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
 }
 
-#wrapper { padding: 0 !important; max-width: 100% !important; }
-
-/* 2. THE MODERN TWO-COLUMN SPLIT */
+/* Chia 2 cột Desktop */
 #content-wrapper {
     display: flex !important;
     min-height: 100vh;
 }
 
-/* Left Side: Clean Form Area */
 #wrapper #content {
     flex: 1.2 !important;
-    padding: 60px 8% !important;
+    padding: 40px 6% !important;
     background: #ffffff !important;
 }
 
-/* Right Side: Subtle Gray Summary (Kate Hayes Style) */
 #wrapper #rightbar {
     flex: 1 !important;
-    padding: 60px 5% !important;
-    background: #f8fafc !important; /* Very light modern gray */
+    padding: 40px 4% !important;
+    background: #f9fafb !important; /* Xám nhạt hiện đại */
     border-left: 1px solid #e5e7eb !important;
 }
 
-/* 3. SHORT FORM: Hiding specific fields per Jermaine */
+/* Ẩn các trường địa chỉ Jermaine yêu cầu loại bỏ */
 .addressLine1Field, .addressLine2Field, .cityField, .stateField,
-#orderSummaryContainer, .orderSummarySubTotals, #orderSummaryPromoEntry {
+.orderSummarySubTotals, #orderSummaryPromoEntry {
     display: none !important;
 }
 
-/* 4. MODERN INPUTS (2026 Design) */
-.input-field input, .select-field select {
-    height: 52px !important;
+/* Form nhập liệu tinh tế */
+.input-field input {
+    height: 48px !important;
     border: 1px solid #d1d5db !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     font-size: 16px !important;
-    background: #ffffff !important;
-    transition: all 0.2s ease !important;
     box-shadow: none !important;
 }
 
-.input-field input:focus {
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1) !important;
-}
-
-/* Static labels above inputs for trust and clarity */
-.input-field label, .select-field label {
+.input-field label {
     position: static !important;
     transform: none !important;
     display: block !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
     font-weight: 600 !important;
     color: #374151 !important;
-    font-size: 14px !important;
 }
 
-/* 5. 50PX ONE-LINE TOTAL SUMMARY */
+/* Dòng tổng tiền 50px */
 .orderSummaryTotal {
     height: 50px !important;
     display: flex !important;
@@ -71,19 +57,17 @@ body {
     margin-top: 20px !important;
 }
 
-/* 6. CREDIT CARD ROW: High Trust Container */
+/* Phần Credit Card hiện sẵn */
 #creditCardFormOption {
-    display: block !important; /* Force show default */
-    background: #ffffff !important;
-    padding: 24px !important;
+    display: block !important;
     border: 1px solid #e5e7eb !important;
-    border-radius: 12px !important;
-    margin-top: 30px !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    background: #fff !important;
 }
 
-/* 7. MOBILE RESPONSIVE */
-@media only screen and (max-width: 840px) {
+/* Mobile: Xếp chồng */
+@media (max-width: 840px) {
     #content-wrapper { flex-direction: column-reverse !important; }
-    #wrapper #content, #wrapper #rightbar { padding: 40px 20px !important; }
-    #wrapper #rightbar { border-left: none !important; border-bottom: 1px solid #e5e7eb !important; }
+    #wrapper #content, #wrapper #rightbar { padding: 24px !important; }
 }

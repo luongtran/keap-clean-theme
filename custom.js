@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function() {
     // 1. Bypass validation: Điền giá trị giả và ẨN HOÀN TOÀN các hàng thừa
     const fieldsToKill = ['.addressLine1Field', '.addressLine2Field', '.cityField', '.stateField'];
@@ -19,4 +18,3 @@ document.addEventListener("DOMContentLoaded", function() {
     const btn = document.querySelector('.button');
     if(btn) btn.innerText = "Complete Your Order";
 });
-</script>

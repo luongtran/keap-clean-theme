@@ -1,74 +1,71 @@
-/* 1. RESET LAYOUT - Đưa về 2 cột sạch sẽ */
+/* 1. LAYOUT: GMTC STYLE SPLIT */
 #content-wrapper {
     display: flex !important;
-    gap: 0 !important;
-    min-height: 100vh;
-}
-
-/* Cột trái: Tóm tắt đơn hàng (Gọn gàng) */
-#wrapper #content {
-    flex: 1 !important;
-    background: #f9fafb !important;
-    padding: 40px !important;
-    border-right: 1px solid #eee !important;
-}
-
-/* Cột phải: Form thanh toán (Cực ngắn) */
-#wrapper #rightbar {
-    flex: 1 !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
     background: #ffffff !important;
-    padding: 40px !important;
 }
 
-/* 2. HIDE ALL CLUTTER - Ẩn sạch những thứ Jermaine không muốn */
+/* Vùng bên trái: Marketing Content (Order Summary) */
+#wrapper #content {
+    flex: 1.1 !important;
+    padding: 50px 5% !important;
+    background: #ffffff !important;
+    border: none !important;
+}
+
+/* Vùng bên phải: The Minimalist Checkout Card */
+#wrapper #rightbar {
+    flex: 0.9 !important;
+    background: #f8fafc !important; /* Nền xám nhạt nhẹ để nổi bật Card trắng */
+    padding: 60px 40px !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* Biến form thành một cái Card trắng như mẫu Joingmtc */
+#rightbar #orderSummary {
+    background: #ffffff !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05) !important;
+    border: 1px solid #e2e8f0 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+/* 2. SIMPLIFY FORM: Chỉ giữ lại Email, Zip, Country, CC */
 .addressLine1Field, .addressLine2Field, .cityField, .stateField,
 .orderSummarySubTotals, #orderSummaryPromoEntry, .title, .formTitle {
     display: none !important;
 }
 
-/* 3. MODERN INPUTS - Làm input mỏng và sắc nét hơn */
+/* 3. INPUTS: Modern & Clean */
 .input-field label {
-    font-size: 13px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
-    margin-bottom: 4px !important;
-    display: block !important;
-    position: static !important;
-    transform: none !important;
+    margin-bottom: 8px !important;
+    color: #1a202c !important;
 }
 
 .input-field input {
-    height: 42px !important; /* Giảm chiều cao để form ngắn hơn */
-    border: 1px solid #e2e8f0 !important;
+    height: 48px !important;
+    border: 1px solid #cbd5e1 !important;
     border-radius: 6px !important;
-    padding: 0 12px !important;
-    font-size: 15px !important;
+    background: #ffffff !important;
 }
 
-/* 4. PAYMENT BOX - Làm cho phần thẻ nhìn chuyên nghiệp */
+/* 4. PAYMENT SECTION: Luôn mở và gọn gàng */
 #creditCardFormOption {
     display: block !important;
-    border: 1px solid #e2e8f0 !important;
-    padding: 20px !important;
-    border-radius: 10px !important;
     margin-top: 20px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #f1f5f9 !important;
 }
 
-/* Thu nhỏ nút PayPal/Debit đang bị quá to trong ảnh của bạn */
-.payPalFormOption, .paymentOptions {
-    max-width: 300px !important;
-    margin: 15px 0 !important;
-}
-
-/* 5. ORDER SUMMARY - Tối giản tóm tắt 50px */
-.orderSummaryTotal {
-    height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    border-top: 1px solid #eee !important;
-}
-
-/* 6. MOBILE FIX */
+/* 5. MOBILE RESPONSIVE */
 @media (max-width: 840px) {
-    #content-wrapper { flex-direction: column-reverse !important; }
+    #content-wrapper { flex-direction: column !important; }
+    #wrapper #content { padding: 30px 20px !important; }
+    #wrapper #rightbar { padding: 20px !important; }
 }

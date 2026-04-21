@@ -1,9 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const cleanUpForm = () => {
-        // 1. Bypass địa chỉ và ẩn các dòng trống hoàn toàn
-        const fieldRows = ['.addressLine1Field', '.addressLine2Field', '.cityField', '.stateField'];
-        fieldRows.forEach(sel => {
-            const row = document.querySelector(sel);
+    const forceShowCheckout = () => {
+        // 1. Luôn mở phần Credit Card (Payment Info)
+        const paymentSection = document.getElementById('creditCardFormOption');
+        if (paymentSection) {
+            paymentSection.style.setProperty('display', 'block', 'important');
+        }
+
+        // 2. Tự điền và ẩn các trường địa chỉ dư thừa
+        const hiddenFields = ['.addressLine1Field', '.addressLine2Field', '.cityField', '.stateField'];
+        hiddenFields.forEach(selector => {
+            const row = document.querySelector(selector);
             if (row) {
                 const input = row.querySelector('input');
                 if (input) input.value = "---";
@@ -11,16 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // 2. Ép phần Credit Card luôn mở và cố định vị trí
-        const cc = document.getElementById('creditCardFormOption');
-        if (cc) cc.style.setProperty('display', 'block', 'important');
-
-        // 3. Sửa lại text cho nút bấm chuyên nghiệp
-        const btn = document.querySelector('.button');
-        if (btn) btn.innerText = "Complete Order";
+        // 3. Đổi tên tiêu đề nếu cần để giống ảnh mẫu
+        const paymentHeader = document.querySelector('.paymentOptionsTitle');
+        if (paymentHeader) paymentHeader.innerText = "PAYMENT INFO";
     };
 
-    // Chạy ngay và chạy lại sau 1s để đảm bảo Keap load xong
-    cleanUpForm();
-    setTimeout(cleanUpForm, 1000);
+    forceShowCheckout();
+    // Chạy lại sau 800ms để ghi đè các script mặc định của Keap
+    setTimeout(forceShowCheckout, 800);
 });

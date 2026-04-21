@@ -1,53 +1,64 @@
-/* 1. FIX LAYOUT: Ép khung cố định */
+/* 1. LAYOUT: High-End Split (Giống mẫu 22.12.52.jpg) */
 #content-wrapper {
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-start !important;
+    gap: 40px !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
-    gap: 50px !important;
+    padding: 40px 20px !important;
 }
 
-/* Cột trái: Nội dung Marketing/Sản phẩm */
+/* Cột trái: Billing Information */
 #wrapper #content {
-    flex: 1.2 !important;
-    padding: 40px !important;
+    flex: 1.1 !important;
     background: #ffffff !important;
 }
 
-/* Cột phải: Khung Checkout Card */
+/* Cột phải: Payment Info & Subscription Summary */
 #wrapper #rightbar {
-    flex: 0.8 !important;
-    background: #f9fafb !important;
-    padding: 40px !important;
+    flex: 0.9 !important;
+    background: #fcfcfc !important; /* Nền xám cực nhẹ */
+    padding: 30px !important;
     border-radius: 12px !important;
+    border: 1px solid #f0f0f0 !important;
 }
 
-/* 2. FIX TEXT OVERLAP: Sửa lỗi chữ bị đè lên nhau trong ảnh của bạn */
-#content * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-}
-
-/* 3. MODERN CHECKOUT CARD: Biến Sidebar thành một cái hộp trắng */
+/* 2. FORM BOX: Tạo hiệu ứng Card trắng cho phần thanh toán */
 #rightbar #orderSummary {
     background: #ffffff !important;
     padding: 25px !important;
-    border-radius: 10px !important;
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    border-radius: 8px !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
 }
 
-/* 4. PAYMENT BUTTONS: Thu nhỏ nút PayPal/Debit đang bị quá khổ */
-.payPalFormOption, .paymentOptions, #creditCardFormOption {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 15px 0 !important;
+/* 3. INPUT FIELDS: Làm mỏng và hiện đại (Giống PayPro) */
+.input-field label {
+    font-size: 13px !important;
+    text-transform: uppercase !important; /* Giống mẫu Billing Info */
+    color: #666 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    position: static !important;
+    transform: none !important;
 }
 
-/* 5. HIDE CLUTTER: Ẩn sạch các hàng địa chỉ thừa */
-.addressLine1Field, .addressLine2Field, .cityField, .stateField, 
-.orderSummarySubTotals, #orderSummaryPromoEntry {
+.input-field input {
+    height: 45px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    font-size: 15px !important;
+}
+
+/* 4. PAYMENT INFO SECTION: Hiển thị nổi bật */
+#creditCardFormOption {
+    display: block !important;
+    margin-top: 20px !important;
+    border-top: 2px solid #eee !important;
+    padding-top: 20px !important;
+}
+
+/* 5. HIDE ADDRESS FIELDS (Theo yêu cầu "Very Short" của Jermaine) */
+.addressLine1Field, .addressLine2Field, .cityField, .stateField {
     display: none !important;
 }

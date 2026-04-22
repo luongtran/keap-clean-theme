@@ -1,28 +1,44 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const forceShowCheckout = () => {
-        // 1. Luôn mở phần Credit Card (Payment Info)
-        const paymentSection = document.getElementById('creditCardFormOption');
-        if (paymentSection) {
-            paymentSection.style.setProperty('display', 'block', 'important');
-        }
+document.addEventListener("DOMContentLoaded", function(){
 
-        // 2. Tự điền và ẩn các trường địa chỉ dư thừa
-        const hiddenFields = ['.addressLine1Field', '.addressLine2Field', '.cityField', '.stateField'];
-        hiddenFields.forEach(selector => {
-            const row = document.querySelector(selector);
-            if (row) {
-                const input = row.querySelector('input');
-                if (input) input.value = "---";
-                row.style.setProperty('display', 'none', 'important');
-            }
-        });
+    // Find form
+    const form = document.querySelector('form');
+    if(!form) return;
 
-        // 3. Đổi tên tiêu đề nếu cần để giống ảnh mẫu
-        const paymentHeader = document.querySelector('.paymentOptionsTitle');
-        if (paymentHeader) paymentHeader.innerText = "PAYMENT INFO";
+    // Change placeholders
+    const map = {
+        firstName: "First Name",
+        lastName: "Last Name",
+        email: "Email Address",
+        phone: "Phone Number",
+        postalCode: "ZIP Code",
+        zip: "ZIP Code",
+        cardNumber: "Card Number"
     };
 
-    forceShowCheckout();
-    // Chạy lại sau 800ms để ghi đè các script mặc định của Keap
-    setTimeout(forceShowCheckout, 800);
+    Object.keys(map).forEach(key=>{
+        let el = form.querySelector('[name*="'+key+'"], #'+key);
+        if(el) el.placeholder = map[key];
+    });
+
+    // Auto focus next field on Enter
+    const fields = form.querySelectorAll('input, select');
+    fields.forEach((field,index)=>{
+        field.addEventListener('keydown',function(e){
+            if(e.key==="Enter"){
+                e.preventDefault();
+                if(fields[index+1]) fields[index+1].focus();
+            }
+        });
+    });
+
+    // Change button text
+    const btn = form.querySelector('button, input[type="submit"]');
+    if(btn){
+        if(btn.tagName==="INPUT"){
+            btn.value = "Complete Order";
+        }else{
+            btn.innerText = "Complete Order";
+        }
+    }
+
 });

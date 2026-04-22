@@ -1,20 +1,36 @@
-<script>
 window.addEventListener("load", function(){
 
- setTimeout(function(){
+    function autoOpenCard(){
 
-   let btns = [...document.querySelectorAll("button,div,a")];
+        let all = [...document.querySelectorAll("button, div, span, a")];
 
-   let cc = btns.find(el =>
-      el.innerText &&
-      el.innerText.toLowerCase().includes("credit card")
-   );
+        let btn = all.find(el =>
+            el.innerText &&
+            el.innerText.trim().toLowerCase().includes("pay with credit card")
+        );
 
-   if(cc){
-      cc.click();
-   }
+        if(btn){
+            btn.click();
+            console.log("Opened Credit Card");
+        }
+    }
 
- },2000);
+    // thử nhiều lần vì keap render chậm
+    let tries = 0;
+
+    let timer = setInterval(function(){
+
+        autoOpenCard();
+
+        tries++;
+
+        // nếu thấy card field rồi thì stop
+        let card = document.body.innerText.toLowerCase().includes("card number");
+
+        if(card || tries > 10){
+            clearInterval(timer);
+        }
+
+    }, 1000);
 
 });
-</script>

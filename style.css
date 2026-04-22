@@ -1,54 +1,57 @@
-/* ===== ONLY POLISH EXISTING KEAP FORM ===== */
-
-/* giữ nguyên layout gốc */
-body form,
-body .order-form,
-body .checkout,
-body .infusion-form{
-    max-width:none !important;
-    width:auto !important;
-    padding:0 !important;
-    margin:0 !important;
-    box-shadow:none !important;
-    background:transparent !important;
+/* Clean Split Layout like GMTC Modern */
+#content-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
 }
 
-/* input đẹp hơn nhưng không phá grid */
-body input[type="text"],
-body input[type="email"],
-body input[type="tel"],
-body input[type="number"],
-body select{
-    border-radius:6px !important;
-    border:1px solid #d8d8d8 !important;
-    transition:all .2s ease;
+/* Marketing/Product Content (Left) */
+#wrapper #content {
+    flex: 1.1 !important;
+    background: #ffffff !important;
 }
 
-/* focus */
-body input:focus,
-body select:focus{
-    border-color:#333 !important;
-    box-shadow:0 0 0 2px rgba(0,0,0,.05) !important;
-    outline:none !important;
+/* Checkout Card (Right) - Inspired by PayPro Global */
+#wrapper #rightbar {
+    flex: 0.9 !important;
+    background: #f8fafc !important;
+    padding: 35px !important;
+    border-radius: 12px !important;
 }
 
-/* button */
-body button,
-body input[type="submit"]{
-    border-radius:8px !important;
-    font-weight:700 !important;
-    letter-spacing:.3px !important;
+/* Create the White Card for Checkout */
+#rightbar #orderSummary {
+    background: #ffffff !important;
+    padding: 30px !important;
+    border-radius: 10px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
 }
 
-/* spacing nhẹ */
-body label{
-    margin-bottom:4px !important;
+/* Modern Input Fields styling */
+.input-field input {
+    height: 48px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    width: 100% !important;
 }
 
-/* mobile only */
-@media(max-width:768px){
-    body input,
-    body select{
-        font-size:16px !important;
-    }
+/* Payment Info Section styling */
+#creditCardFormOption {
+    margin-top: 25px !important;
+    padding-top: 20px !important;
+    border-top: 2px solid #f1f5f9 !important;
+}
+
+/* Hide clutter as per Jermaine's request */
+.orderSummarySubTotals, #orderSummaryPromoEntry, .title, .formTitle {
+    display: none !important;
+}
+
+/* Mobile Fix */
+@media (max-width: 840px) {
+    #content-wrapper { flex-direction: column !important; }
 }

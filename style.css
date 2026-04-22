@@ -1,64 +1,80 @@
-/* 1. LAYOUT: High-End Split (Giống mẫu 22.12.52.jpg) */
-#content-wrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 40px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 40px 20px !important;
-}
-
-/* Cột trái: Billing Information */
-#wrapper #content {
-    flex: 1.1 !important;
-    background: #ffffff !important;
-}
-
-/* Cột phải: Payment Info & Subscription Summary */
-#wrapper #rightbar {
-    flex: 0.9 !important;
-    background: #fcfcfc !important; /* Nền xám cực nhẹ */
-    padding: 30px !important;
-    border-radius: 12px !important;
-    border: 1px solid #f0f0f0 !important;
-}
-
-/* 2. FORM BOX: Tạo hiệu ứng Card trắng cho phần thanh toán */
-#rightbar #orderSummary {
-    background: #ffffff !important;
+/* ===== MAIN CONTAINER ===== */
+body .order-form,
+body form[action*="infusionsoft"],
+body form[action*="keap"]{
+    max-width: 420px !important;
+    margin: 30px auto !important;
     padding: 25px !important;
-    border-radius: 8px !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    font-family: Arial, sans-serif !important;
 }
 
-/* 3. INPUT FIELDS: Làm mỏng và hiện đại (Giống PayPro) */
-.input-field label {
-    font-size: 13px !important;
-    text-transform: uppercase !important; /* Giống mẫu Billing Info */
-    color: #666 !important;
-    margin-bottom: 8px !important;
-    display: block !important;
-    position: static !important;
-    transform: none !important;
+/* ===== REMOVE EXTRA SPACING ===== */
+body .order-form *{
+    box-sizing:border-box;
 }
 
-.input-field input {
-    height: 45px !important;
-    border: 1px solid #ddd !important;
-    border-radius: 4px !important;
-    font-size: 15px !important;
+/* ===== LABELS ===== */
+body label{
+    display:block !important;
+    font-size:14px !important;
+    font-weight:600 !important;
+    margin-bottom:6px !important;
+    color:#222 !important;
 }
 
-/* 4. PAYMENT INFO SECTION: Hiển thị nổi bật */
-#creditCardFormOption {
-    display: block !important;
-    margin-top: 20px !important;
-    border-top: 2px solid #eee !important;
-    padding-top: 20px !important;
+/* ===== INPUTS ===== */
+body input,
+body select{
+    width:100% !important;
+    height:46px !important;
+    padding:0 14px !important;
+    margin-bottom:14px !important;
+    border:1px solid #ddd !important;
+    border-radius:10px !important;
+    font-size:16px !important;
+    outline:none !important;
 }
 
-/* 5. HIDE ADDRESS FIELDS (Theo yêu cầu "Very Short" của Jermaine) */
-.addressLine1Field, .addressLine2Field, .cityField, .stateField {
-    display: none !important;
+body input:focus{
+    border-color:#111 !important;
+}
+
+/* ===== BUTTON ===== */
+body button,
+body input[type="submit"]{
+    width:100% !important;
+    height:52px !important;
+    border:none !important;
+    border-radius:12px !important;
+    background:#111 !important;
+    color:#fff !important;
+    font-size:18px !important;
+    font-weight:700 !important;
+    cursor:pointer !important;
+}
+
+body button:hover,
+body input[type="submit"]:hover{
+    opacity:.92;
+}
+
+/* ===== HIDE UNUSED FIELDS ===== */
+body input[name*="address"],
+body input[name*="company"],
+body input[name*="city"],
+body input[name*="state"],
+body select[name*="country"]{
+    display:none !important;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+    body .order-form,
+    body form{
+        margin:10px !important;
+        padding:18px !important;
+    }
 }

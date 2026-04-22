@@ -1,80 +1,54 @@
-/* ===== MAIN CONTAINER ===== */
+/* ===== ONLY POLISH EXISTING KEAP FORM ===== */
+
+/* giữ nguyên layout gốc */
+body form,
 body .order-form,
-body form[action*="infusionsoft"],
-body form[action*="keap"]{
-    max-width: 420px !important;
-    margin: 30px auto !important;
-    padding: 25px !important;
-    background: #ffffff !important;
-    border-radius: 14px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
-    font-family: Arial, sans-serif !important;
+body .checkout,
+body .infusion-form{
+    max-width:none !important;
+    width:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+    box-shadow:none !important;
+    background:transparent !important;
 }
 
-/* ===== REMOVE EXTRA SPACING ===== */
-body .order-form *{
-    box-sizing:border-box;
-}
-
-/* ===== LABELS ===== */
-body label{
-    display:block !important;
-    font-size:14px !important;
-    font-weight:600 !important;
-    margin-bottom:6px !important;
-    color:#222 !important;
-}
-
-/* ===== INPUTS ===== */
-body input,
+/* input đẹp hơn nhưng không phá grid */
+body input[type="text"],
+body input[type="email"],
+body input[type="tel"],
+body input[type="number"],
 body select{
-    width:100% !important;
-    height:46px !important;
-    padding:0 14px !important;
-    margin-bottom:14px !important;
-    border:1px solid #ddd !important;
-    border-radius:10px !important;
-    font-size:16px !important;
+    border-radius:6px !important;
+    border:1px solid #d8d8d8 !important;
+    transition:all .2s ease;
+}
+
+/* focus */
+body input:focus,
+body select:focus{
+    border-color:#333 !important;
+    box-shadow:0 0 0 2px rgba(0,0,0,.05) !important;
     outline:none !important;
 }
 
-body input:focus{
-    border-color:#111 !important;
-}
-
-/* ===== BUTTON ===== */
+/* button */
 body button,
 body input[type="submit"]{
-    width:100% !important;
-    height:52px !important;
-    border:none !important;
-    border-radius:12px !important;
-    background:#111 !important;
-    color:#fff !important;
-    font-size:18px !important;
+    border-radius:8px !important;
     font-weight:700 !important;
-    cursor:pointer !important;
+    letter-spacing:.3px !important;
 }
 
-body button:hover,
-body input[type="submit"]:hover{
-    opacity:.92;
+/* spacing nhẹ */
+body label{
+    margin-bottom:4px !important;
 }
 
-/* ===== HIDE UNUSED FIELDS ===== */
-body input[name*="address"],
-body input[name*="company"],
-body input[name*="city"],
-body input[name*="state"],
-body select[name*="country"]{
-    display:none !important;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:480px){
-    body .order-form,
-    body form{
-        margin:10px !important;
-        padding:18px !important;
+/* mobile only */
+@media(max-width:768px){
+    body input,
+    body select{
+        font-size:16px !important;
     }
 }

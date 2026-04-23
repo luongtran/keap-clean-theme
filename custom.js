@@ -1,13 +1,10 @@
-let t = setInterval(()=>{
+let t = setInterval(function(){
 
- let btn = [...document.querySelectorAll("*")].find(el =>
-   el.innerText &&
-   el.innerText.includes("Pay with Credit Card")
- );
+   let btn = document.querySelector('[data-funding-source="card"]');
 
- if(btn){
-   btn.click();
-   clearInterval(t);
- }
+   if(btn){
+      btn.click();
+      clearInterval(t);
+   }
 
-},1000);
+},700);

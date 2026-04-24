@@ -1,57 +1,147 @@
-/* Clean Split Layout like GMTC Modern */
-#content-wrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 40px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 40px 20px !important;
+/* ===============================
+   HEARANDPLAY TEST111 CLEAN STYLE
+   =============================== */
+
+/* Page */
+body{
+    font-family: Arial, Helvetica, sans-serif !important;
+    background:#f8f8f8 !important;
 }
 
-/* Marketing/Product Content (Left) */
-#wrapper #content {
-    flex: 1.1 !important;
-    background: #ffffff !important;
+/* Main wrapper */
+#main, .main, form#orderForm{
+    max-width:1100px !important;
+    margin:30px auto !important;
 }
 
-/* Checkout Card (Right) - Inspired by PayPro Global */
-#wrapper #rightbar {
-    flex: 0.9 !important;
-    background: #f8fafc !important;
-    padding: 35px !important;
-    border-radius: 12px !important;
+/* Two column */
+#productsContainer{
+    background:#fff !important;
+    border-radius:12px !important;
+    padding:25px !important;
+    box-shadow:0 8px 30px rgba(0,0,0,.06) !important;
 }
 
-/* Create the White Card for Checkout */
-#rightbar #orderSummary {
-    background: #ffffff !important;
-    padding: 30px !important;
-    border-radius: 10px !important;
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
+/* Order Summary Title */
+.productsTitle{
+    font-size:28px !important;
+    font-weight:700 !important;
+    margin-bottom:20px !important;
+    color:#111 !important;
 }
 
-/* Modern Input Fields styling */
-.input-field input {
-    height: 48px !important;
-    border: 1px solid #cbd5e1 !important;
-    border-radius: 6px !important;
-    width: 100% !important;
+/* Product cards */
+#productsContainer .product{
+    border:1px solid #ececec !important;
+    border-radius:12px !important;
+    padding:18px !important;
+    margin-bottom:18px !important;
+    background:#fff !important;
 }
 
-/* Payment Info Section styling */
-#creditCardFormOption {
-    margin-top: 25px !important;
-    padding-top: 20px !important;
-    border-top: 2px solid #f1f5f9 !important;
+/* Product row */
+.productItem{
+    display:flex !important;
+    justify-content:space-between !important;
+    gap:20px !important;
+    align-items:flex-start !important;
 }
 
-/* Hide clutter as per Jermaine's request */
-.orderSummarySubTotals, #orderSummaryPromoEntry, .title, .formTitle {
-    display: none !important;
+/* Product image */
+.productImage{
+    width:90px !important;
+    height:auto !important;
+    border-radius:10px !important;
+    margin:10px 0 !important;
 }
 
-/* Mobile Fix */
-@media (max-width: 840px) {
-    #content-wrapper { flex-direction: column !important; }
+/* Text */
+.productName{
+    font-size:20px !important;
+    font-weight:700 !important;
+    margin-bottom:8px !important;
+    color:#111 !important;
+}
+
+.productDescription,
+.productSubscriptionDetails{
+    font-size:15px !important;
+    color:#555 !important;
+    line-height:1.5 !important;
+    margin-top:8px !important;
+}
+
+/* Pricing */
+.productTotalPrice{
+    font-size:28px !important;
+    font-weight:800 !important;
+    color:#111 !important;
+}
+
+.productOriginalPrice{
+    text-decoration:line-through !important;
+    color:#999 !important;
+}
+
+/* Hide ugly qty */
+.productQuantity{
+    display:none !important;
+}
+
+/* Payment Section */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select{
+    height:46px !important;
+    border-radius:8px !important;
+    border:1px solid #ddd !important;
+    padding:0 14px !important;
+    font-size:16px !important;
+}
+
+/* Button */
+button,
+input[type="submit"]{
+    height:52px !important;
+    border:none !important;
+    border-radius:10px !important;
+    font-size:18px !important;
+    font-weight:700 !important;
+    background:#111 !important;
+    color:#fff !important;
+}
+
+/* Hide PayPal Yellow */
+[data-funding-source="paypal"]{
+    display:none !important;
+}
+
+/* Security note */
+.hp-security{
+    margin-top:15px;
+    font-size:13px;
+    color:#666;
+    text-align:center;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .productItem{
+        display:block !important;
+    }
+
+    #productsContainer{
+        padding:18px !important;
+    }
+
+    .productsTitle{
+        font-size:24px !important;
+    }
+
+    .productTotalPrice{
+        font-size:24px !important;
+    }
 }
